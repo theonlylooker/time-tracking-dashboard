@@ -1,13 +1,77 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+*::before,*::after{
+  box-sizing: border-box;
+}
+:root{
+  --primary-blue: hsl(246, 80%, 60%);
+  --primary-Light-red-orange : hsl(15, 100%, 70%);  /*(work)*/
+  --primary-Soft-blue : hsl(195, 74%, 62%); /*(play)*/
+  --primary-Light-red : hsl(348, 100%, 68%); /*(study)*/
+  --primary-Lime-green : hsl(145, 58%, 55%); /*(exercise)*/
+  --primary-Violet: hsl(264, 64%, 52%); /*(social)*/
+  --primary-Soft-orange : hsl(43, 84%, 65%); /*(self care)*/
+  
+  --neutral-Very-dark-blue: hsl(226, 43%, 10%);
+  --neutral-Dark-blue: hsl(235, 46%, 20%);
+  --neutral-Desaturated-blue: hsl(235, 45%, 61%);
+  --neutral-Pale-Blue: hsl(236, 100%, 87%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html{
+  font-family: 'Rubik', sans-serif;
+  background-color: var(--neutral-Very-dark-blue);
+}
+
+.firstColor{
+  color: var(--neutral-Pale-Blue);
+}
+.secondColor{
+  color:var(--neutral-Desaturated-blue)
+}
+.thirdColor{
+  color:#fff;
+}
+.titleSize{
+  font-size: 18px;
+}
+
+.profileCard{
+  background-color: var(--neutral-Dark-blue);
+  border-radius: 1rem;
+  max-width: 270px;
+  margin: 0 auto;
+}
+.profileCard__header{
+  background-color: var(--primary-blue);
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-height: 100px;
+  padding: 0;
+}
+.profileCard__text{
+  line-height: 0.1rem;
+}
+.profileCard__subtitle{
+  font-size: 0.7rem;
+}
+.profileCard__img{
+  width: 100%;
+
+}
+.profileCard__imgContainer{
+  width:50px;
+  border: solid #fff 1px;
+  background-color: #fff;
+  border-radius: 2rem;
+  display: flex;
+}
+
+.profileCard__body{
+  display: flex;
+  flex-direction: col;
+  justify-content: space-evenly;
 }
