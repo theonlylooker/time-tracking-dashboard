@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FetchData } from "./types/types";
+import { FetchData, TimeFrameGroupKey } from "./types/types";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import profileImg from "./Assets/images/image-jeremy.png";
 import { CardStyled } from "./components/TrackingCard/TrackingCard.style";
@@ -13,7 +13,8 @@ import selfcareIcon from "./Assets/images/icon-self-care.svg";
 function App() {
   const URL = "http://localhost:5000/users/1";
   const [data, setData] = useState<FetchData>();
-  const [type, setType] = useState("weekly");
+  const [timeFrameType, setTimeFrameType] =
+    useState<TimeFrameGroupKey>("weekly");
   const icons = [
     workIcon,
     playIcon,
@@ -31,15 +32,30 @@ function App() {
     };
     getData();
   }, []);
+  const handleType = (type: TimeFrameGroupKey) => {
+    setTimeFrameType(type);
+  };
   return (
-    <div>
-      {data && <ProfileCard name={data.name} img={profileImg} />}
-      {data &&
-        data.tracking.map((elemento, index) => (
-          <CardStyled key={index} img={icons[index]} color={elemento.title} />
-        ))}
-      {type == "week" && <></>}
-      {type == "montly" && <></>}
+    <div className="Wrapper">
+      <div className="TimeTracking">
+        {data && (
+          <ProfileCard
+            name={data.name}
+            img={profileImg}
+            handleType={handleType}
+          />
+        )}
+        {data &&
+          data.tracking.map((elemento, index) => (
+            <CardStyled
+              key={index}
+              img={icons[index]}
+              type={elemento.title}
+              timeframe={elemento.timeframes[timeFrameType]}
+              timeframeType={timeFrameType.slice(0, -2)}
+            />
+          ))}
+      </div>
     </div>
   );
 }

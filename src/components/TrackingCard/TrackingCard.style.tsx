@@ -11,6 +11,7 @@ export const CardStyled = styled(TrackingCard)`
   --primary-Violet: hsl(264, 64%, 52%); /*(social)*/
   --primary-Soft-orange: hsl(43, 84%, 65%); /*(self care)*/
   --neutral-Pale-Blue: hsl(236, 100%, 87%);
+  --neutral-Desaturated-blue: hsl(235, 45%, 61%);
   max-width: 270px;
   margin: 1rem auto 1.8rem;
   border-radius: 1rem;
@@ -50,9 +51,10 @@ export const CardStyled = styled(TrackingCard)`
   .Social {
     background-color: var(--primary-Violet);
     .trackingCard__img {
-      width: 14%;
+      width: 18%;
       top: -0.5rem;
     }
+    height: 50px;
   }
   .SelfCare {
     background-color: var(--primary-Soft-orange);
@@ -128,5 +130,100 @@ export const CardStyled = styled(TrackingCard)`
   .trackingCard__lastPeriod {
     color: var(--neutral-Pale-Blue);
     font-size: 0.8rem;
+  }
+  @media (min-width: 1440px) {
+    margin: 0;
+    .Work {
+      background-color: var(--primary-Light-red-orange);
+      .trackingCard__img {
+        top: -0.4rem;
+        width: 35%;
+      }
+    }
+    .Play {
+      background-color: var(--primary-Soft-blue);
+      .trackingCard__img {
+        top: -0.1rem;
+        width: 35%;
+      }
+    }
+    .Study {
+      background-color: var(--primary-Light-red);
+      .trackingCard__img {
+        top: -0.3rem;
+        width: 35%;
+      }
+    }
+    .Exercise {
+      background-color: var(--primary-Lime-green);
+      .trackingCard__img {
+        height: 28%;
+        top: -0.1rem;
+        width: 36%;
+      }
+      min-height: 55px;
+    }
+    .Social {
+      background-color: var(--primary-Violet);
+      .trackingCard__img {
+        top: -0.75rem;
+        width: 34%;
+        height: 128%;
+      }
+      min-height: 64px;
+    }
+    .SelfCare {
+      background-color: var(--primary-Soft-orange);
+      .trackingCard__img {
+        height: 10%;
+        top: -0.5rem;
+        width: 30%;
+      }
+      min-height: 60px;
+    }
+    .Workbody {
+      top: -1.5rem;
+    }
+    .Playbody {
+      top: -1.5rem;
+    }
+    .Studybody {
+      top: -1.5rem;
+    }
+    .Exercisebody {
+      top: -1.4rem;
+    }
+    .Socialbody {
+      top: -1.9rem;
+    }
+    .SelfCarebody {
+      top: -1.5rem;
+    }
+    .trackingCard__body {
+      min-height: 100px;
+      min-width: 150px;
+      padding-bottom: 1.4rem;
+      bottom: 1rem;
+      cursor: pointer;
+    }
+    .trackingCard__body:hover {
+      background-color: var(--neutral-Desaturated-blue);
+    }
+    .trackingCard__content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .trackingCard__actualPeriod {
+      margin-top: 1.8rem;
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+    .trackingCard__lastPeriod {
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+    }
+    .trackingCard__menu {
+      cursor: pointer;
+    }
   }
 `;

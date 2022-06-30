@@ -3,13 +3,15 @@ export interface Timeframe{
     previous: number
 }
 
+export interface TimeframeGroup{
+    daily: Timeframe,
+    weekly: Timeframe,
+    monthly: Timeframe,
+}
+
 export interface Tracking{
     title: string,
-    timeframes: {
-        daily: Timeframe,
-        weekly: Timeframe,
-        montly: Timeframe,
-    }
+    timeframes: TimeframeGroup,
 }
 
 export interface FetchData{
@@ -21,10 +23,15 @@ export interface FetchData{
 export interface ProfileProps{
     name: string,
     img: string,
+    handleType: (type:TimeFrameGroupKey)=>void,
 }
 
 export interface TrackingCardProps{
     className?: string,
     img: string,
-    color: string,
+    type: string,
+    timeframe: Timeframe,
+    timeframeType: string,
 }
+
+export type TimeFrameGroupKey = keyof TimeframeGroup;

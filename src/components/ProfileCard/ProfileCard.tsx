@@ -1,7 +1,7 @@
 import React from "react";
 import { ProfileProps } from "../../types/types";
 
-const ProfileCard = ({ name, img }: ProfileProps) => {
+const ProfileCard = ({ name, img, handleType }: ProfileProps) => {
   return (
     <div className="profileCard">
       <div className="profileCard__header firstColor">
@@ -10,13 +10,29 @@ const ProfileCard = ({ name, img }: ProfileProps) => {
         </picture>
         <div className="profileCard__text">
           <p className="profileCard__subtitle">Report for</p>
-          <p>{name}</p>
+          <p className="profileCard__user">{name}</p>
         </div>
       </div>
-      <div className="profileCard__body secondColor">
-        <p>Daily</p>
-        <p>Weekly</p>
-        <p>Montly</p>
+      <div className="profileCard__body">
+        <button
+          className="profileCard__button secondColor"
+          onClick={() => handleType("daily")}
+        >
+          Daily
+        </button>
+        <button
+          className="profileCard__button secondColor"
+          onClick={() => handleType("weekly")}
+          autoFocus
+        >
+          Weekly
+        </button>
+        <button
+          className="profileCard__button secondColor"
+          onClick={() => handleType("monthly")}
+        >
+          Monthly
+        </button>
       </div>
     </div>
   );
